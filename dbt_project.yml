@@ -1,0 +1,21 @@
+name: dbt_analytics_engineering_demo
+version: 1.0.0
+config-version: 2
+
+profile: dbt_project
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+models:
+  dbt_analytics_engineering_demo:
+    +materialized: view
+
+seeds:
+  dbt_analytics_engineering_demo:
+    risk_flag_map:
+      +column_types:
+        raw_value: varchar
+        clean_value: boolean
