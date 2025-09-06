@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    description: "Staged transactions: typed, seed-normalized, filtered, deduped"
+    columns:
+      - name: transaction_id
+        tests: [not_null, unique]
+
+      - name: user_id
+        tests: [not_null]
+
+      - name: product_id
+        tests: [not_null]
+
+      - name: transaction_ts
+        tests: [not_null]
+
+      - name: transaction_action
+        description: "Canonical action; mapped via seed with fallback to raw"
+        tests:
+          - not_null
+
+      - name: asset_symbol
+        description: "Normalized asset symbol"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['BTC','ETH']
+              config:
+                where: "asset_symbol IS NOT NULL"  # ignore nulls if any
+
+      - name: risk_flag
+        description: "TEXT label for flagged transactions; 'fraud' when flagged, else NULL"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['fraud']
+              config:
+                where: "risk_flag IS NOT NULL"
+
+      - name: risk_flag_bool
+        description: "BOOLEAN helper; true when flagged, false/null otherwise"
+        tests:
+          - accepted_values:
+              arguments:
+                values: [true, false]
+              config:
+                where: "risk_flag_bool IS NOT NULL"
