@@ -1,0 +1,14 @@
+raw_value,clean_value
+repayment,repay
+repay,repay
+Borrow,borrow
+borrow,borrow
+loan_borrowed,borrow
+STAKE,stake
+stake,stake
+unstake,unstake
+unsta​ke,unstake
+margin_open,margin_open
+margin_close,margin_close
+liquidation,liquidation
+fee,fee
