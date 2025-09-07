@@ -134,7 +134,9 @@ profile.example.yml
 
 sources.yml
 
-
 ---
 
 ✨ This project is just the start — staging transactions now lays the groundwork for building **dimensional models (dim_users, dim_products)** and fact tables for reliable analytics.  
+
+--- 
+<img width="732" height="108" alt="image" src="https://github.com/user-attachments/assets/88653994-4502-43d5-b6f7-950043252f95" />
