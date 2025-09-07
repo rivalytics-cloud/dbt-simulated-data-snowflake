@@ -1,0 +1,15 @@
+# example.profiles.yml
+dbt_project:                 # must match the "profile" in dbt_project.yml
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "<your_account>"        # e.g., abc12345.us-east-1
+      user: "<your_username>"          # e.g., johndoe
+      password: "<your_password>"      # better: set via env_var()
+      role: "<your_role>"              # e.g., ACCOUNTADMIN
+      database: "<your_database>"      # e.g., FINANCING_PRODUCTS
+      warehouse: "<your_wh>"           # e.g., COMPUTE_WH
+      schema: "<your_schema>"          # e.g., PUBLIC
+      threads: 4
+      client_session_keep_alive: false
